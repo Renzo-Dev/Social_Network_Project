@@ -11,7 +11,7 @@ export default defineComponent({
   setup() {
     return {}
   }
-})
+});
 
 </script>
 

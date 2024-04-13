@@ -1,0 +1,105 @@
+/* Сброс стилей */
+
+/* Сброс отступов и полей */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Улучшение семантики HTML5 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* Установка базового шрифта и цвета текста */
+body {
+    line-height: 1;
+    font-family: Arial, sans-serif; /* Выберите ваш шрифт */
+    color: #000; /* Выберите ваш цвет текста */
+}
+
+/* Улучшение доступности ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Убираем стили списка у списка и списка элементов */
+ol, ul {
+    list-style: none;
+}
+
+/* Убираем стили текстовых полей и кнопок */
+button, input, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Корректировка шрифтов */
+button, input {
+    overflow: visible; /* Для IE */
+}
+
+/* Наследование относительных размеров шрифта в Firefox */
+button, select {
+    text-transform: none;
+}
+
+/* Корректировка стилизации кнопок */
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button; /* Корректировка стилизации кнопок в Safari */
+    cursor: pointer; /* Устанавливаем стандартный курсор */
+}
+
+/* Убираем внутренние отступы и границы фокусированного элемента */
+button::-moz-focus-inner, input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+/* Убираем стили, применяемые браузерами по умолчанию к нескольким элементам форм */
+input[type="search"] {
+    -webkit-appearance: textfield; /* Корректировка стилизации input[type="search"] в Safari */
+    outline-offset: -2px; /* Корректировка отображения фокуса в Chrome */
+}
+
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; /* Убираем декорацию в Safari */
+}
+
+/* Унификация различий в маркере */
+::-webkit-file-upload-button {
+    -webkit-appearance: button; /* Корректировка стилизации input[type="file"] в Chrome/Edge */
+}
+
+/* Корректировка сброса стиля для старых версий Firefox */
+output {
+    display: inline-block;
+}
+
+/* Стилизация фигурного текста (ползунка) в IE */
+progress {
+    vertical-align: baseline;
+}
+
+/* Убираем стили в аудио/видео элементах */
+audio, canvas, progress, video {
+    display: inline-block; /* Оптимизация макета в IE */
+    vertical-align: baseline;
+}
+
+/* Стилизация текстовых полей для нескольких браузеров */
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box; /* Стилизация полей в IE/Edge */
+    padding: 0; /* Очистка внутренних отступов в IE/Edge */
+}
+
+/* Убираем отступы между элементами */
+body > :not(script) + :not(script) {
+    margin-top: 0; /* Очистка отступа сверху между элементами */
+}

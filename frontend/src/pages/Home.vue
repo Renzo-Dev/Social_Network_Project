@@ -1,5 +1,6 @@
 <template>
-  <h1>Home</h1>
+  <router-link to="/login">Login</router-link>
+  <router-link to="/register">Registration</router-link>
 </template>
 
 <script lang="js">

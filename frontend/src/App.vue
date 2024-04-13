@@ -3,7 +3,6 @@
 </template>
 
 <script lang="js">
-
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -11,9 +10,12 @@ export default defineComponent({
   setup() {
     return {}
   }
-})
+});
+import './styles/resetCSS.css'
 </script>
 
-<style lang="scss">
-
+<style lang="css">
+body {
+  background-image: linear-gradient(to bottom, #051937, #051937, #051937, #051937, #051937);
+}
 </style>

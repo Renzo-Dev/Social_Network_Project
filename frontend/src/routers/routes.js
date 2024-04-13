@@ -6,14 +6,24 @@ const routes = [
     {
         path: '/',
         component: Home,
+        meta: {
+            title: 'Home',
+            requiresAuth: true,
+        },
     },
     {
         path: '/login',
-        component: Login
+        component: Login,
+        meta: {
+            title: 'Login',
+        }
     },
     {
         path: '/register',
-        component: Registration
+        component: Registration,
+        meta: {
+            title: 'Registration',
+        }
     }
 ]
 
