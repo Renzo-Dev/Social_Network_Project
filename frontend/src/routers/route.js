@@ -9,12 +9,10 @@ const router = new createRouter(
     }
 );
 
-
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
     // Проверяем, требует ли маршрут аутентификации
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        alert('auth')
         // Если пользователь не аутентифицирован, перенаправляем на страницу входа
         if (!isLoggedIn()) {
             next({
@@ -27,6 +25,6 @@ router.beforeEach((to, from, next) => {
     } else {
         next(); // Продолжаем навигацию для маршрутов, которые не требуют аутентификации
     }
-})
+});
 
 export default router;
