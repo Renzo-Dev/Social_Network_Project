@@ -28,6 +28,7 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 .main-container {
   width: 100%;
@@ -39,8 +40,12 @@ export default defineComponent({
 
   .h-login{
     color: white;
-    font-family: "Segoe MDL2 Assets",serif;
-    font-size: calc(10 * .25vw);
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: calc(10   * .25vw);
+    font-weight: 600;
+    margin-bottom: 15px;
   }
 
   .login-form {
