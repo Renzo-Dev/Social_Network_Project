@@ -14,7 +14,7 @@ export default defineComponent({
 
 <template>
    <main class="main-container">
-     <h1 class="h-login">Вход</h1>
+     <h1 class="h-login">Login</h1>
      <form class="login-form">
        <input id="inputEmail" type="text" name="inputEmail" placeholder="Email" />
        <input id="inputPassword" type="password" placeholder="Password">
