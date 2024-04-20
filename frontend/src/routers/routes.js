@@ -6,6 +6,7 @@ const routes = [
     {
         path: '/',
         component: Home,
+        name: "Home",
         meta: {
             title: 'Home',
             requiresAuth: true,
@@ -14,6 +15,7 @@ const routes = [
     {
         path: '/login',
         component: Login,
+        name: 'Login',
         meta: {
             title: 'Login',
         }
@@ -21,6 +23,7 @@ const routes = [
     {
         path: '/register',
         component: Registration,
+        name: 'Register',
         meta: {
             title: 'Registration',
         }
