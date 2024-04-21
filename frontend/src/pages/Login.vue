@@ -20,11 +20,13 @@ export default defineComponent({
 </script>
 
 <template>
+  <header class="text-logo-wrapper">
+    <div class="text-logo">
+      Fun Talk
+    </div>
+  </header>
   <main class="main-container">
     <form autofocus id="login-form">
-      <div id="user_logo">
-        <img src="../images/user.svg">
-      </div>
       <div class="input-container">
         <label for="email"><img src="../images/mail.svg"></label>
         <input id="email" class="inputEmail" type="text" placeholder="Email" />
@@ -35,7 +37,10 @@ export default defineComponent({
       </div>
       <input type="submit" class="buttonSubmit" value="Login" />
       <div class="second-change">
-        <input type="checkbox" class="chBoxRemember" value="Remember me" />
+        <div class="checkBox">
+        <input id="remember" type="checkbox" value="remember" />
+        <label class="chBoxRemember" for="remember">Remember me</label>
+        </div>
         <a href="#">Forgot Password?</a>
       </div>
       <input type="button" class="buttonRegister" value="Register" />
