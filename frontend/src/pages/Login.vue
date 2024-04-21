@@ -13,23 +13,32 @@ export default defineComponent({
       errors
     }
   },
-  methods: {}
+  methods: {
+
+  }
 });
 </script>
 
 <template>
   <main class="main-container">
-    <form class="login__form">
-      <div class="title__login">Вход</div>
-      <label for="inputEmail">Введите почту <span v-if="errors.email" class="Error_Message">Неверная почта</span></label>
-      <input type="text" id="inputEmail" class="formInput" autocomplete="on" name="email_" title="Email" placeholder="Email">
-      <label for="inputPassword">Введите пароль<span v-if="errors.password" class="Error_Message"> </span></label>
-      <input type="password" id="inputPassword" class="formInput" name="password" title="Password"
-             placeholder="Password">
-      <div class="NotHaveAccount">Нет аккаунта?<a
-          :href="`${$router.resolve({ name: 'Register' }).href}`">Регистрация</a></div>
-      <input value="Войти" type="submit" id="buttonSubmit">
-      <div class="resetPassword"><a href="#">Сбросить пароль</a></div>
+    <form autofocus id="login-form">
+      <div id="user_logo">
+        <img src="../images/user.svg">
+      </div>
+      <div class="input-container">
+        <label for="email"><img src="../images/mail.svg"></label>
+        <input id="email" class="inputEmail" type="text" placeholder="Email" />
+      </div>
+      <div class="input-container">
+        <label for="password"><img src="../images/lock.svg"></label>
+        <input id="password" class="inputPassword" autocomplete="off" type="password" placeholder="Password" />
+      </div>
+      <input type="submit" class="buttonSubmit" value="Login" />
+      <div class="second-change">
+        <input type="checkbox" class="chBoxRemember" value="Remember me" />
+        <a href="#">Forgot Password?</a>
+      </div>
+      <input type="button" class="buttonRegister" value="Register" />
     </form>
   </main>
 </template>
