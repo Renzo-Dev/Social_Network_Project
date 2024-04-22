@@ -80,7 +80,36 @@
       justify-content: space-between;
 
       #remember {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px;
+        height: 20px;
+        background-color: #ccc; /* Цвет фона */
+        border: 1px solid #999; /* Граница */
+        border-radius: 3px;
+        outline: none;
+        position: relative;
+        &:hover {
+          background-color: #e0e0e0; /* Цвет фона при наведении */
+          border-color: #666; /* Цвет границы при наведении */
+        }
+        &:checked {
+          background-color: #444444; /* Цвет фона при выборе */
+          border-color: #444444; /* Цвет границы при выборе */
+        }
+        &:after {
+          content: "\2713"; /* Символ галочки */
+          font-size: 16px; /* Размер символа */
+          color: transparent; /* Цвет символа (по умолчанию прозрачный) */
+          position: absolute;
+          top: 1px; /* Смещение символа по вертикали */
+          left: 4px; /* Смещение символа по горизонтали */
+        }
+        &:checked:after {
+          color: #fff; /* Цвет галочки при выборе */
 
+        }
       }
 
       .checkBox {
