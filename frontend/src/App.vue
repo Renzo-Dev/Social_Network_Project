@@ -26,6 +26,6 @@ body,html {
 }
 
 body {
-  background: #1d1d1d;
+  background: #161819;
 }
 </style>

@@ -45,6 +45,7 @@
     background-color: inherit;
 
     .buttonRegister , .buttonSubmit {
+      text-align: center;
       font-size: calc(5px + 2vmin);
       background-color: #7c7c7c;
       border: none;
@@ -67,8 +68,16 @@
     }
 
     .buttonRegister {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       background-image: linear-gradient(to top, rgb(26, 26, 26), rgb(79, 79, 79));
       opacity: 50%;
+      a {
+        width: 100%;
+      }
     }
 
     .second-change {
@@ -118,6 +127,7 @@
         align-items: center;
         justify-content: center;
         label {
+          display: flex;
           margin-left: 10px;
           user-select: none;
         }
@@ -144,7 +154,7 @@
       input:-webkit-autofill:hover,
       input:-webkit-autofill:focus,
       input:-webkit-autofill:active  {
-        -webkit-box-shadow: 0 0 0 30px #1d1d1d inset !important;
+        -webkit-box-shadow: 0 0 0 30px #161819 inset !important;
         -webkit-text-fill-color: var(--text-color) !important;
       }
 

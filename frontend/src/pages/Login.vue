@@ -43,7 +43,9 @@ export default defineComponent({
         </div>
         <a href="#">Forgot Password?</a>
       </div>
-      <input type="button" class="buttonRegister" value="Register" />
+      <div class="buttonRegister">
+        <a href="/register">Register</a>
+      </div>
     </form>
   </main>
 </template>
