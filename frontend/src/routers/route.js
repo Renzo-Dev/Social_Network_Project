@@ -11,32 +11,34 @@ const router = new createRouter(
 
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
-    // const isAuthenticated = isLoggedIn();
-    //
-    // // Проверяем, требует ли маршрут аутентификации
-    // if (to.matched.some(record => record.meta.requiresAuth)) {
-    //     // Если пользователь не аутентифицирован, перенаправляем на страницу входа
-    //     if (!isAuthenticated) {
-    //         next({
-    //             path: '/login',
-    //             //query: { redirect: to.fullPath } // Сохраняем URL для перенаправления после входа
-    //         });
-    //     } else {
-    //         if (to.name === 'Login' || to.name === 'Register'){
-    //             next({ path: '/' });
-    //         }
-    //         next(); // Продолжаем навигацию
-    //     }
-    //
-    // } else {
-    //     next(); // Продолжаем навигацию для маршрутов, которые не требуют аутентификации
-    // }
+    // делаем проверку токена есть ли он у нас и валиден ли он
+    const isAuthenticated = isLoggedIn();
 
-    // проверка маршрутов
-    /// если маршрут ( login или register )
-    // проверка токена ( если он есть , то переходим в / , если нету то переход на login register )
-    /// если маршрут ( который не ( login register ) , но там нужна аутентификация )
-    // проверка токена ( если все хорошо , то переход на / , если нет то на /login )
+    /*
+    * если маршрут требующий аутентификацию
+    * если токен валиден переходим на главную
+    * если токен невалиден переходим на страницу входа
+    * */
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!isAuthenticated) {
+            next({ path: '/login' });
+        } else {
+            next();
+        }
+    /*
+    * Если переходим на страницу /login | /register
+    * если у нас есть валидный токен - переходим на главную страницу /
+    * если нет валидного токена - переходим на страницу входа или регистрации
+    * */
+    } else if (to.name === 'Login' || to.name === 'Register') {
+        if (isAuthenticated) {
+            next({ path: '/' });
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
 });
 
 export default router;
