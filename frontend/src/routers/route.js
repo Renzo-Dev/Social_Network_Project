@@ -11,10 +11,18 @@ const router = new createRouter(
 
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
+    const isAuthenticated = isLoggedIn();
+    if ((to.name === 'Login' || to.name === 'Register') && isAuthenticated) {
+        // Перенаправляем на страницу входа, если пользователь не аутентифицирован
+        next({ path: '/' });
+    } else {
+        next();
+    }
+
     // Проверяем, требует ли маршрут аутентификации
     if (to.matched.some(record => record.meta.requiresAuth)) {
         // Если пользователь не аутентифицирован, перенаправляем на страницу входа
-        if (!isLoggedIn()) {
+        if (!isAuthenticated) {
             next({
                 path: '/login',
                 //query: { redirect: to.fullPath } // Сохраняем URL для перенаправления после входа
@@ -22,6 +30,7 @@ router.beforeEach((to, from, next) => {
         } else {
             next(); // Продолжаем навигацию
         }
+
     } else {
         next(); // Продолжаем навигацию для маршрутов, которые не требуют аутентификации
     }

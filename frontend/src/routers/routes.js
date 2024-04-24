@@ -18,7 +18,7 @@ const routes = [
         name: 'Login',
         meta: {
             title: 'Login',
-        }
+        },
     },
     {
         path: '/register',
