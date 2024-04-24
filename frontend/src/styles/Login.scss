@@ -44,6 +44,17 @@
     width: 400px;
     background-color: inherit;
 
+    .form-title {
+      text-align: center;
+      width: 100%;
+      font-weight: 600;
+      color: #9d9d9d;
+      font-size: calc(20px + 2vmin);
+      margin-top: -100px;
+      margin-bottom: 50px;
+      user-select: none;
+    }
+
     .buttonRegister , .buttonSubmit {
       text-align: center;
       font-size: calc(5px + 2vmin);

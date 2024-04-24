@@ -27,6 +27,7 @@ export default defineComponent({
   </header>
   <main class="main-container">
     <form autofocus id="login-form">
+      <h1 class="form-title">Login</h1>
       <div class="input-container">
         <label for="email"><img src="../images/mail.svg"></label>
         <input id="email" class="inputEmail" type="text" placeholder="Email" />

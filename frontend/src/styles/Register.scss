@@ -1,0 +1,21 @@
+.text-logo-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //filter: blur(1px);
+
+  .text-logo {
+    color: #9d9d9d;
+    user-select: none;
+    margin-top: 70px;
+    font-family: Arial, serif;
+    font-size: calc(40px + 2vmin);
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: .2em;
+    background: rgba(77,1,91,0);
+    text-shadow: 3px 5px 2px #474747;
+  }
+}
