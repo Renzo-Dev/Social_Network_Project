@@ -1,11 +1,7 @@
-import Home from "../pages/Home.vue";
-import Login from "../pages/Login.vue";
-import Registration from "../pages/Registration.vue";
-
 const routes = [
     {
         path: '/',
-        component: Home,
+        component: ()=> import('../pages/Home.vue'),
         name: "Home",
         meta: {
             title: 'Home',
@@ -14,7 +10,7 @@ const routes = [
     },
     {
         path: '/login',
-        component: Login,
+        component: ()=> import('../pages/Login.vue'),
         name: 'Login',
         meta: {
             title: 'Login',
@@ -22,7 +18,7 @@ const routes = [
     },
     {
         path: '/register',
-        component: Registration,
+        component: ()=> import('../pages/Registration.vue'),
         name: 'Register',
         meta: {
             title: 'Registration',
