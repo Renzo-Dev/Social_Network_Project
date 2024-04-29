@@ -54,12 +54,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #RUN composer create-project laravel/laravel .
 
 # Устанавливаем права на директорию storage и bootstrap
-RUN #chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap
+#RUN #chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap
 
 # Устанавливаем зависимости Laravel
-RUN #composer install --no-interaction --no-dev --optimize-autoloader
+#RUN #composer install --no-interaction --no-dev --optimize-autoloader
 
-RUN #./artisan key:generate
+#RUN ./artisan key:generate
 
 # Открываем порт 9000, который используется PHP-FPM
 EXPOSE 9000
