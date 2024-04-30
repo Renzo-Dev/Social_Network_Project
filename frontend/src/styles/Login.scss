@@ -19,7 +19,7 @@
     font-weight: bold;
     text-align: center;
     letter-spacing: .2em;
-    background: rgba(77,1,91,0);
+    background: rgba(77, 1, 91, 0);
     text-shadow: 3px 5px 2px #474747;
   }
 }
@@ -44,6 +44,37 @@
     width: 400px;
     background-color: inherit;
 
+    .ErrorMessage {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      font-family: "JetBrains Mono NL", serif;
+
+      padding: 5px 10px 0 10px;
+      background-color: #0d1011;
+      color: #7a7a7a;
+      width: 100%;
+      margin-bottom: 5px;
+      text-align: center;
+      border-radius: 13px;
+
+      .rectangle {
+        margin-bottom: 4px;
+        padding-top: 3px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #a10001;
+        border-radius: 90px;
+
+        .exclamation-mark {
+          font-size: 24px;
+          color: red;
+        }
+      }
+    }
+
     .form-title {
       text-align: center;
       width: 100%;
@@ -55,7 +86,7 @@
       user-select: none;
     }
 
-    .buttonRegister , .buttonSubmit {
+    .buttonRegister, .buttonSubmit {
       text-align: center;
       font-size: calc(5px + 2vmin);
       background-color: #7c7c7c;
@@ -68,7 +99,8 @@
       opacity: 80%;
       border-radius: 3px;
       transition: all .2s ease-in-out;
-      &:hover{
+
+      &:hover {
         opacity: 1;
         transform: translateY(3px);
       }
@@ -86,6 +118,7 @@
       align-items: center;
       background-image: linear-gradient(to top, rgb(26, 26, 26), rgb(79, 79, 79));
       opacity: 50%;
+
       a {
         width: 100%;
       }
@@ -110,14 +143,17 @@
         border-radius: 3px;
         outline: none;
         position: relative;
+
         &:hover {
           background-color: #e0e0e0; /* Цвет фона при наведении */
           border-color: #666; /* Цвет границы при наведении */
         }
+
         &:checked {
           background-color: #444444; /* Цвет фона при выборе */
           border-color: #444444; /* Цвет границы при выборе */
         }
+
         &:after {
           content: "\2713"; /* Символ галочки */
           font-size: 16px; /* Размер символа */
@@ -126,6 +162,7 @@
           top: 1px; /* Смещение символа по вертикали */
           left: 4px; /* Смещение символа по горизонтали */
         }
+
         &:checked:after {
           color: #fff; /* Цвет галочки при выборе */
 
@@ -137,12 +174,14 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
+
         label {
           display: flex;
           margin-left: 10px;
           user-select: none;
         }
       }
+
       a {
         user-select: none;
       }
@@ -161,10 +200,11 @@
       background-color: inherit;
       align-items: center;
       margin-bottom: 35px;
+
       input:-webkit-autofill,
       input:-webkit-autofill:hover,
       input:-webkit-autofill:focus,
-      input:-webkit-autofill:active  {
+      input:-webkit-autofill:active {
         -webkit-box-shadow: 0 0 0 30px #161819 inset !important;
         -webkit-text-fill-color: var(--text-color) !important;
       }

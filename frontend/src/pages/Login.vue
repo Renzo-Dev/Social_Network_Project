@@ -1,5 +1,6 @@
 <script lang="js">
 import {defineComponent} from "vue";
+import {EmailValidate} from "../services/ValidatorData/Validator";
 
 export default defineComponent({
   name: "Login",
@@ -14,7 +15,7 @@ export default defineComponent({
     }
   },
   methods: {
-
+    EmailValidate
   }
 });
 </script>
@@ -30,17 +31,17 @@ export default defineComponent({
       <h1 class="form-title">Login</h1>
       <div class="input-container">
         <label for="email"><img src="../images/mail.svg"></label>
-        <input id="email" class="inputEmail" type="text" placeholder="Email" />
+        <input id="email" class="inputEmail" type="text" placeholder="Email" @input="EmailValidate"/>
       </div>
       <div class="input-container">
-        <label for="password"><img src="../images/lock.svg"></label>
-        <input id="password" class="inputPassword" autocomplete="off" type="password" placeholder="Password" />
+        <label for="password"><img src="../images/lock.svg" alt="lock"></label>
+        <input id="password" class="inputPassword" autocomplete="off" type="password" placeholder="Password"/>
       </div>
-      <input type="submit" class="buttonSubmit" value="Login" />
+      <input type="submit" class="buttonSubmit" value="Login"/>
       <div class="second-change">
         <div class="checkBox">
-        <input id="remember" type="checkbox" value="remember" />
-        <label class="chBoxRemember" for="remember">Remember me</label>
+          <input id="remember" type="checkbox" value="remember"/>
+          <label class="chBoxRemember" for="remember">Remember me</label>
         </div>
         <a href="#">Forgot Password?</a>
       </div>
@@ -53,6 +54,6 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('../styles/Login.css');
+@import url('../styles/Login.scss');
 
 </style>

@@ -1,6 +1,6 @@
 import { createRouter , createWebHistory} from "vue-router";
 import routes from "./routes";
-import {isLoggedIn} from "../services/Authentication";
+import {isLoggedIn} from "../services/Authentication/Authentication";
 
 const router = new createRouter(
     {
