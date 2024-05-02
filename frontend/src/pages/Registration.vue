@@ -17,17 +17,20 @@
                @input="emailIsValid($event.target.value)"/>
       </div>
 
+      <div class="input-container">
+        <label for="password"><img src="../images/lock.svg"></label>
+        <input id="password" class="inputPassword" autocomplete="off" type="password" placeholder="Password"
+               @input="passwordIsValid($event.target.value)"/>
+      </div>
+      <div class="password-strength" id="passwordStrength"></div>
+
       <div v-if="errors.password.isValid===true" id="passwordError" class="ErrorMessage">
-        <span v-text="errorPasswordText"></span>
+        <span v-text="this.errors.password.text"></span>
         <div class="rectangle">
           <span class="exclamation-mark">!</span>
         </div>
       </div>
 
-      <div class="input-container">
-        <label for="password"><img src="../images/lock.svg"></label>
-        <input id="password" class="inputPassword" autocomplete="off" type="password" placeholder="Password"/>
-      </div>
       <div v-if="errors.username.isValid" id="usernameError" class="ErrorMessage">Некорректное Username
         <div class="rectangle"><span class="exclamation-mark">!</span></div>
       </div>
@@ -35,6 +38,7 @@
         <label for="username"><img src="../images/user.svg"></label>
         <input id="username" class="inputUsername" autocomplete="off" type="text" placeholder="Username"/>
       </div>
+
       <input type="submit" class="buttonSubmit" value="Register"/>
       <div class="buttonRegister">
         <a href="/login">Login</a>
@@ -59,7 +63,8 @@ export default defineComponent({
       },
       password: {
         isValid: false,
-        text: ''
+        text: '',
+        strength: ''
       },
       username: {
         isValid: false,
@@ -72,27 +77,66 @@ export default defineComponent({
   },
   methods: {},
   computed: {
-    errorEmailText() {
-      if (this.errors.email) {
-
-      } else {
-
-      }
-    },
-    errorPasswordText() {
-      if (this.errors.password) {
-        return 'PasswordIncorrect'
-      } else {
-        return 'awdad';
-      }
+    checkPasswordStrength: function () {
+      alert(this.errors.password.strength);
     }
   },
   setup() {
     let validator = new Validator();
 
+    function checkValid(options) {
+      let isValid = options.validator.validationPassword(options.validationStr);
+      console.dir(isValid)
+      if (isValid.isValid !== true) {
+        options.error.isValid = true;
+        options.error.text = isValid.text;
+      } else {
+        options.error.isValid = false;
+      }
+      // получаем полосу сложности пароля
+      let strengthBar = document.getElementById("passwordStrength");
+      console.log(strengthBar)
+
+      // Получаем сложность пароля
+      let strength = validator.checkPasswordStrength(options.validationStr);
+      console.log(strength);
+
+      // Установка ширины линии в зависимости от сложности пароля
+      strengthBar.style.width = (strength * 25) + "%";
+
+      // Установка класса для определения цвета линии в зависимости от сложности пароля
+      if (strength === 1) {
+        strengthBar.className = "weak password-strength";
+      } else if (strength === 2 || strength === 3) {
+        strengthBar.className = "medium password-strength";
+      } else if (strength === 4) {
+        strengthBar.className = "strong password-strength";
+      }
+    }
+
+    // проверка валидности пароля
+    function passwordIsValid(password) {
+      let options = {
+        validator: validator,
+        validationStr: password,
+        error: this.errors.password
+      }
+
+      checkValid(options);
+
+      // let isValid = validator.validationPassword(password);
+      // if (isValid.isValid !== true) {
+      //   this.errors.password.isValid = true;
+      //   this.errors.password.text = isValid.text;
+      // } else {
+      //   this.errors.password.isValid = false;
+      // }
+    }
+
+    // проверка валидности почты
     function emailIsValid(email) {
       let isValid = validator.validationEmail(email);
-      if (isValid.isValid !== true){
+      if (isValid.isValid !== true) {
         this.errors.email.isValid = true;
         this.errors.email.text = isValid.text;
       } else {
@@ -102,6 +146,7 @@ export default defineComponent({
 
     return {
       emailIsValid,
+      passwordIsValid
     }
   }
 });

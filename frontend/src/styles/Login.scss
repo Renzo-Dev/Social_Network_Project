@@ -45,6 +45,8 @@
     background-color: inherit;
 
     .ErrorMessage {
+      bottom: 10px;
+      position: relative;
       font-size: 20px;
       display: flex;
       align-items: center;
@@ -190,7 +192,28 @@
         text-decoration: underline;
       }
     }
+    .password-strength {
+      align-self: start;
+      position: absolute;
+      top: 125px;
+      left: 0;
+      border-radius: 15px;
+      height: 3px;
+      width: 0;
+      transition: width 0.3s;
+    }
 
+    .weak {
+      background-color: #6c0001;
+    }
+
+    .medium {
+      background-color: orange;
+    }
+
+    .strong {
+      background-color: green;
+    }
     .input-container {
       display: flex;
       flex-direction: row;
@@ -208,7 +231,6 @@
         -webkit-box-shadow: 0 0 0 30px #161819 inset !important;
         -webkit-text-fill-color: var(--text-color) !important;
       }
-
 
       img {
         width: 30px;

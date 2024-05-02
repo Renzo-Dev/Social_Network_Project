@@ -1,9 +1,9 @@
 <template>
-  <router-view />
+  <router-view/>
 </template>
 
 <script lang="js">
-import { defineComponent } from "vue";
+import {defineComponent} from "vue";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
@@ -17,7 +17,7 @@ import './styles/resetCSS.css'
 </script>
 
 <style lang="css">
-body,html {
+body, html {
   width: 100%;
   height: 100vh;
   margin: 0;

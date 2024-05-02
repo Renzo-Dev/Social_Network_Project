@@ -1,9 +1,7 @@
 FROM php:8.1-fpm
 
 # Установка необходимых пакетов для PHP-FPM и Nginx
-RUN set -eux; \
-    apt-get update; \
-    apt-get upgrade -y; \
+RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y git \
             libzip-dev \
             zip \
@@ -24,20 +22,17 @@ RUN set -eux; \
             libonig-dev; \
     rm -rf /var/lib/apt/lists/*
 
-RUN set -eux; \
-    # Install the PHP pdo_mysql extention
-#    docker-php-ext-install pdo_mysql; \
-    # Install the PHP pdo_pgsql extention
-    docker-php-ext-install pdo_pgsql; \
-    # Install the PHP gd library
+RUN apt-get install -y \
+docker-php-ext-install pdo_pgsql; \
     docker-php-ext-configure gd \
             --prefix=/usr \
             --with-jpeg \
             --with-webp \
             --with-xpm \
             --with-freetype; \
-    docker-php-ext-install gd; \
-    php -r 'var_dump(gd_info());'
+    docker-php-ext-install gd
+
+#    php -r 'var_dump(gd_info());'
 
 RUN mkdir -p /var/run/php/
 
