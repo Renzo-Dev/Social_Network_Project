@@ -1,6 +1,5 @@
 <script lang="js">
 import {defineComponent} from "vue";
-import {EmailValidate} from "../services/ValidatorData/Validator";
 
 export default defineComponent({
   name: "Login",
@@ -15,7 +14,6 @@ export default defineComponent({
     }
   },
   methods: {
-    EmailValidate
   }
 });
 </script>
@@ -31,7 +29,7 @@ export default defineComponent({
       <h1 class="form-title">Login</h1>
       <div class="input-container">
         <label for="email"><img src="../images/mail.svg"></label>
-        <input id="email" class="inputEmail" type="text" placeholder="Email" @input="EmailValidate"/>
+        <input id="email" class="inputEmail" type="text" placeholder="Email"/>
       </div>
       <div class="input-container">
         <label for="password"><img src="../images/lock.svg" alt="lock"></label>
