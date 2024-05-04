@@ -12,7 +12,7 @@ export class Validator {
     };
 
     // валидация почты
-    validationEmail(email) {
+    validationEmail(email, validator) {
         // если у нас пришла пустая строка
         // выкидываем допустимая почта , что бы не было ошибка валидации
         if (!email) {
@@ -27,11 +27,12 @@ export class Validator {
         const isValid = emailRegPattern.test(email);
         return {
             isValid: isValid,
-            text: isValid ? '' : this.emailError // Если email не прошел проверку, возвращаем текст ошибки
+            text: isValid ? '' : validator.emailError // Если email не прошел проверку, возвращаем текст ошибки
         };
     }
 
-    validationPassword(password) {
+    validationPassword(password, validator) {
+
         if (!password) {
             return {
                 isValid: true // Если пароль пустой, считаем его допустимым
@@ -44,14 +45,14 @@ export class Validator {
         if (password.length < minLength) {
             return {
                 isValid: false,
-                text: this.passwordError.smallLength // Возвращаем текст ошибки, если длина пароля слишком короткая
+                text: validator.passwordError.smallLength // Возвращаем текст ошибки, если длина пароля слишком короткая
             };
         }
 
         if (password.length > maxLength) {
             return {
                 isValid: false,
-                text: this.passwordError.bigLength // Возвращаем текст ошибки, если длина пароля слишком длинная
+                text: validator.passwordError.bigLength // Возвращаем текст ошибки, если длина пароля слишком длинная
             };
         }
 
@@ -61,7 +62,7 @@ export class Validator {
 
         return {
             isValid: isValid,
-            text: isValid ? '' : this.passwordError.incorrectCharacter // Возвращаем текст ошибки, если пароль не соответствует регулярному выражению
+            text: isValid ? '' : validator.passwordError.incorrectCharacter // Возвращаем текст ошибки, если пароль не соответствует регулярному выражению
         };
     }
 

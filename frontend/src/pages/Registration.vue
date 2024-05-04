@@ -50,7 +50,7 @@
 <script lang="js">
 import {defineComponent} from "vue";
 import {Validator} from "../services/ValidatorData/Validator";
-import {isVisible} from "bootstrap/js/src/util";
+import {checkValid, passwordStrength, ValidatorOptions} from "../services/ValidatorData/CheckValid";
 
 export default defineComponent({
   name: "Registration",
@@ -75,79 +75,36 @@ export default defineComponent({
       errors,
     }
   },
-  methods: {},
-  computed: {
-    checkPasswordStrength: function () {
-      alert(this.errors.password.strength);
-    }
-  },
-  setup() {
-    let validator = new Validator();
+  methods: {
+    passwordIsValid(password) {
+      let validator = new Validator();
 
-    function checkValid(options) {
-      let isValid = options.validator.validationPassword(options.validationStr);
-      console.dir(isValid)
-      if (isValid.isValid !== true) {
-        options.error.isValid = true;
-        options.error.text = isValid.text;
-      } else {
-        options.error.isValid = false;
-      }
-      // получаем полосу сложности пароля
-      let strengthBar = document.getElementById("passwordStrength");
-      console.log(strengthBar)
+      const options = new ValidatorOptions(password, validator, this.errors.password);
 
-      // Получаем сложность пароля
-      let strength = validator.checkPasswordStrength(options.validationStr);
-      console.log(strength);
+      checkValid(options, validator.validationPassword);
+      passwordStrength(password, validator);
+    },
+    emailIsValid(email) {
 
-      // Установка ширины линии в зависимости от сложности пароля
-      strengthBar.style.width = (strength * 25) + "%";
+      let validator = new Validator();
 
-      // Установка класса для определения цвета линии в зависимости от сложности пароля
-      if (strength === 1) {
-        strengthBar.className = "weak password-strength";
-      } else if (strength === 2 || strength === 3) {
-        strengthBar.className = "medium password-strength";
-      } else if (strength === 4) {
-        strengthBar.className = "strong password-strength";
-      }
-    }
+      const options = new ValidatorOptions(email,validator,this.errors.email);
 
-    // проверка валидности пароля
-    function passwordIsValid(password) {
-      let options = {
-        validator: validator,
-        validationStr: password,
-        error: this.errors.password
-      }
+      checkValid(options,validator.validationEmail);
 
-      checkValid(options);
-
-      // let isValid = validator.validationPassword(password);
+      // let isValid = validator.validationEmail(email);
       // if (isValid.isValid !== true) {
-      //   this.errors.password.isValid = true;
-      //   this.errors.password.text = isValid.text;
+      //   this.errors.email.isValid = true;
+      //   this.errors.email.text = isValid.text;
       // } else {
-      //   this.errors.password.isValid = false;
+      //   this.errors.email.isValid = false;
       // }
     }
+  },
+  computed: {},
+  setup: function () {
 
-    // проверка валидности почты
-    function emailIsValid(email) {
-      let isValid = validator.validationEmail(email);
-      if (isValid.isValid !== true) {
-        this.errors.email.isValid = true;
-        this.errors.email.text = isValid.text;
-      } else {
-        this.errors.email.isValid = false;
-      }
-    }
-
-    return {
-      emailIsValid,
-      passwordIsValid
-    }
+    return {}
   }
 });
 
