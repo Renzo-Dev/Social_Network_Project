@@ -1,4 +1,4 @@
-import { createRouter , createWebHistory} from "vue-router";
+import {createRouter, createWebHistory} from "vue-router";
 import routes from "./routes";
 import {isLoggedIn} from "../services/Authentication/Authentication";
 
@@ -21,18 +21,18 @@ router.beforeEach((to, from, next) => {
     * */
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (!isAuthenticated) {
-            next({ path: '/login' });
+            next({path: '/login'});
         } else {
             next();
         }
-    /*
-    * Если переходим на страницу /login | /register
-    * если у нас есть валидный токен - переходим на главную страницу /
-    * если нет валидного токена - переходим на страницу входа или регистрации
-    * */
+        /*
+        * Если переходим на страницу /login | /register
+        * если у нас есть валидный токен - переходим на главную страницу /
+        * если нет валидного токена - переходим на страницу входа или регистрации
+        * */
     } else if (to.name === 'Login' || to.name === 'Register') {
         if (isAuthenticated) {
-            next({ path: '/' });
+            next({path: '/'});
         } else {
             next();
         }

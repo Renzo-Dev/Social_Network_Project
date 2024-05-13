@@ -4,7 +4,7 @@ const routes = [
         component: ()=> import('../pages/Home.vue'),
         name: "Home",
         meta: {
-            title: 'Home',
+            title: 'Fun Talk',
             requiresAuth: true,
         },
     },
@@ -13,7 +13,7 @@ const routes = [
         component: ()=> import('../pages/Login.vue'),
         name: 'Login',
         meta: {
-            title: 'Login',
+            title: 'Fun Talk',
         },
     },
     {
@@ -21,7 +21,7 @@ const routes = [
         component: ()=> import('../pages/Registration.vue'),
         name: 'Register',
         meta: {
-            title: 'Registration',
+            title: 'Fun Talk',
         }
     }
 ]

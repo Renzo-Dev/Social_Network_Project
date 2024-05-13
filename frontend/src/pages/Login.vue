@@ -1,9 +1,10 @@
 <script lang="js">
 import {defineComponent} from "vue";
+import HeaderTitle from "../components/HeaderTitle.vue";
 
 export default defineComponent({
   name: "Login",
-  components: {},
+  components: {HeaderTitle},
   data() {
     let errors = {
       email: false,
@@ -13,39 +14,42 @@ export default defineComponent({
       errors
     }
   },
-  methods: {
-  }
+  methods: {}
 });
 </script>
 
 <template>
-  <header class="text-logo-wrapper">
-    <div class="text-logo">
-      Fun Talk
-    </div>
+  <header>
+    <HeaderTitle/>
   </header>
   <main class="main-container">
-    <form autofocus id="login-form">
-      <h1 class="form-title">Login</h1>
+    <form id="login-form">
+      <h1>Login</h1>
       <div class="input-container">
-        <label for="email"><img src="../images/mail.svg"></label>
-        <input id="email" class="inputEmail" type="text" placeholder="Email"/>
+        <label for="email">
+          <img src="../images/mail.svg" alt="mail">
+        </label>
+        <input type="email" id="email" class="inputEmail">
       </div>
       <div class="input-container">
-        <label for="password"><img src="../images/lock.svg" alt="lock"></label>
-        <input id="password" class="inputPassword" autocomplete="off" type="password" placeholder="Password"/>
+        <label for="password">
+          <img src="../images/lock.svg" alt="password">
+        </label>
+        <input type="password" id="password" class="inputPassword">
       </div>
-      <input type="submit" class="buttonSubmit" value="Login"/>
-      <div class="second-change">
-        <div class="checkBox">
-          <input id="remember" type="checkbox" value="remember"/>
-          <label class="chBoxRemember" for="remember">Remember me</label>
-        </div>
-        <a href="#">Forgot Password?</a>
+      <div class="checkbox-wrapper-65">
+        <label for="cbk1-65">
+          <input type="checkbox" id="cbk1-65">
+          <span class="cbx">
+      <svg width="12px" height="11px" viewBox="0 0 12 11">
+        <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+      </svg>
+    </span>
+          <span class="checkbox--text">Remember me ?</span>
+        </label>
       </div>
-      <div class="buttonRegister">
-        <a href="/register">Register</a>
-      </div>
+      <input class="button-form" type="button" value="Sign In">
+      <input class="button-form" type="button" value="Sign Up">
     </form>
   </main>
 </template>

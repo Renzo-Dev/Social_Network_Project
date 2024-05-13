@@ -18,14 +18,15 @@ import './styles/resetCSS.css'
 
 <style lang="css">
 body, html {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 body {
-  background: #161819;
+  background: #0d0d1f;
 }
 </style>
