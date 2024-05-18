@@ -13,20 +13,10 @@ export default defineComponent({
     return {}
   }
 });
+
+import './styles/App.scss'
 import './styles/resetCSS.css'
 </script>
 
-<style lang="css">
-body, html {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #0d0d1f;
-}
+<style lang="scss">
 </style>
