@@ -39,7 +39,7 @@ export function getPreferredLanguage() {
         return storedLang;
     }
     const browserLang = navigator.language.split('-')[0];
-    const supportedLangs = ['en', 'fr', 'ru'];
+    const supportedLangs = ['en', 'ru'];
     if (supportedLangs.includes(browserLang)) {
         return browserLang;
     }

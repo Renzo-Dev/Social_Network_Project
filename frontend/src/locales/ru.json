@@ -1,6 +1,6 @@
 {
   "messages": {
-    "hello": "Привет",
+    "buttonLogin": "Войти",
     "submit": "Отправить"
   }
 }

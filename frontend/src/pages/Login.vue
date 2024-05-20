@@ -1,5 +1,6 @@
 <script lang="js">
 import {defineComponent} from "vue";
+import {changeLanguage} from "../i18n";
 
 export default defineComponent({
   name: "Login",
@@ -12,12 +13,37 @@ export default defineComponent({
       errors
     }
   },
-  methods: {}
+  methods: {changeLanguage}
 });
 </script>
 
 <template>
-  <div>{{$t('messages.hello')}}</div>
+  <!--  <div>{{$t('messages.hello')}}</div>-->
+  <main id="main-container">
+    <form id="form-container">
+      <label for="input-email" class="label-wrapper">
+        <div class="input-block-wrapper">
+          <img src="../images/mail.svg" alt="email" class="image-">
+          <div class="input-wrapper">
+            <input id="input-email" type="text" class="form-input">
+            <div class="input-error">Error</div>
+          </div>
+        </div>
+      </label>
+
+      <label for="input-password" class="label-input">
+        <div class="input-block-wrapper">
+          <img src="../images/lock.svg" alt="password" class="image-">
+          <div class="input-wrapper">
+            <input id="input-password" type="text" class="form-input">
+            <div class="input-error">Error</div>
+          </div>
+        </div>
+      </label>
+      <a>Зарегистрироваться</a>
+      <input type="button" :value="$t('messages.buttonLogin')">
+    </form>
+  </main>
 </template>
 
 <style scoped lang="scss">
