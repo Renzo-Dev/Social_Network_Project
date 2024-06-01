@@ -1,48 +1,43 @@
 <script lang="js">
 import {defineComponent} from "vue";
 import {changeLanguage} from "../i18n";
+import {Authentication} from "../services/Authentication/Authentication";
 
 export default defineComponent({
   name: "Login",
   data() {
-    let errors = {
-      email: false,
-      password: false,
-    };
     return {
-      errors
-    }
+      showError: false
+    };
   },
-  methods: {changeLanguage}
+  methods: {
+    changeLanguage,
+    checkCredentials() {
+      if (!Authentication) {
+        this.showError = true;
+        alert('work')
+      }
+    }
+  }
 });
 </script>
 
 <template>
-  <!--  <div>{{$t('messages.hello')}}</div>-->
-  <main id="main-container">
-    <form id="form-container">
-      <label for="input-email" class="label-wrapper">
-        <div class="input-block-wrapper">
-          <img src="../images/mail.svg" alt="email" class="image-">
-          <div class="input-wrapper">
-            <input id="input-email" type="text" class="form-input">
-            <div class="input-error">Error</div>
-          </div>
-        </div>
+  <main class="main--container">
+    <h1 class="form--title">Login</h1>
+    <form class="form--container">
+      <label class="label--container">
+        <img class="input--image" src="../images/mail.svg" alt="">
+        <input type="email" autocomplete="on" placeholder="Email"/>
       </label>
 
-      <label for="input-password" class="label-input">
-        <div class="input-block-wrapper">
-          <img src="../images/lock.svg" alt="password" class="image-">
-          <div class="input-wrapper">
-            <input id="input-password" type="text" class="form-input">
-            <div class="input-error">Error</div>
-          </div>
-        </div>
+      <label class="label--container">
+        <img class="input--image" src="../images/lock.svg" alt="">
+        <input type="password" autocomplete="off" placeholder="Password"/>
       </label>
-      <a>Зарегистрироваться</a>
-      <input type="button" :value="$t('messages.buttonLogin')">
     </form>
+    <div :hidden="!showError" style="color: red">Ошибка неверная почта или пароль</div>
+    <input type="button" @click="checkCredentials" value="Login">
   </main>
 </template>
 

@@ -17,16 +17,18 @@ import './styles/resetCSS.css'
 </script>
 
 <style lang="css">
-body, html {
-  display: flex;
-  flex-direction: column;
+html, body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-body {
-  background: #0d0d1f;
+body , #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #01020c;
 }
+
 </style>

@@ -1,11 +1,15 @@
 'use strict'
 
+export function Authentication() {
+
+    return false;
+}
+
 export function isLoggedIn() {
 
     // 1 Храниться ли у меня токен доступа
     // если он есть , то отправляем его на backend ( получаем true or false )
     // если его нету , перенаправляемся на старницу входа
-
 
 
     // Верните true, если пользователь аутентифицирован, и false в противном случае
