@@ -4,7 +4,7 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_DB: homeWork
+      POSTGRES_DB: SocialDB
       POSTGRES_USER: Renzo
       POSTGRES_PASSWORD: 12345
     networks:
