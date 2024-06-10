@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <router-view/>
 </template>
 
@@ -8,12 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 export default defineComponent({
-  components: {},
+  components: { Header },
   setup() {
     return {}
   }
 });
 import './styles/resetCSS.css'
+import Header from "./components/Header.vue";
 </script>
 
 <style lang="css">
@@ -25,10 +27,11 @@ html, body {
 }
 
 body , #app {
+  overflow: auto;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #01020c;
+  background-image: linear-gradient(to bottom, #01020c, #06060e, #0b0b0f, #0f0f11, #121212);
 }
 
 </style>
