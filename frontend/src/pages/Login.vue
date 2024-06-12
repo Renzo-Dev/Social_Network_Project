@@ -2,9 +2,11 @@
 import {defineComponent} from "vue";
 import {changeLanguage} from "../i18n";
 import {Authentication} from "../services/Authentication/Authentication";
+import LoginForm from "../components/login-form.vue";
 
 export default defineComponent({
   name: "Login",
+  components: {LoginForm},
   data() {
     return {
       showError: false
@@ -23,6 +25,9 @@ export default defineComponent({
 </script>
 
 <template>
+  <main class="main-container">
+    <login-form/>
+  </main>
 </template>
 
 <style scoped lang="css">

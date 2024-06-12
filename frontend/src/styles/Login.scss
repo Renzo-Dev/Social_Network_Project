@@ -3,3 +3,14 @@
   --form-title-color: #EEC72A;
 }
 
+* {
+  color: var(--text-color);
+}
+
+.main-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
