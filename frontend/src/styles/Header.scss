@@ -1,13 +1,36 @@
-.main-header {
-  width: 100%;
-  background-color: #101112;
-  text-align: center;
-  padding: 5px 0;
-
-  .text-header {
-
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes text-animation {
+.main-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #151515;
+  padding: 10px 0;
+}
+
+.loader {
+  font-weight: 600;
+  font-size: calc(10 * .25vw);
+  text-align: center;
+  position: relative;
+  width: 500px;
+  background: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094);
+  background-size: 500%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: animate 20s linear infinite;
+
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 500% 0;
+  }
 }
