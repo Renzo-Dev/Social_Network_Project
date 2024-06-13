@@ -14,7 +14,21 @@
   background-color: #151515;
   border-radius: 13px;
 
+  .title-form {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: calC(2 * 1.25vw);
+  }
+
   .label-container {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 50px;
+    }
+
   }
 }
