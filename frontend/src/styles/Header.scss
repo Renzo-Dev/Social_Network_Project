@@ -1,3 +1,8 @@
+:root {
+  --header-text-gradient: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094);
+  --background-color: #151515;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +13,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #151515;
+  background-color: var(--background-color);
   padding: 10px 0;
 }
 
@@ -18,7 +23,7 @@
   text-align: center;
   position: relative;
   width: 500px;
-  background: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094);
+  background: var(--header-text-gradient);
   background-size: 500%;
   -webkit-background-clip: text;
   color: transparent;

@@ -5,11 +5,12 @@
       <input id="input-email" name="email" type="email" autocapitalize="on" placeholder="Email">
     </label>
     <label class="label-container" for="input-password"><img src="../images/lock.svg" alt="">
-      <input id="input-password" type="password" autocapitalize="on" placeholder="Password">
+      <input id="input-password" type="password" autocapitalize="off" placeholder="Password">
     </label>
-    <div v-show="true" class="ErrorMessage">Error Message</div>
-    <a href="#">{{ $t('messages.recoverPassword') }}</a>
-    <input type="button" id="submit" :value="$t('messages.buttonLogin')" />
+    <div class="ErrorMessage">{{ $t('messages.ErrorMessage') }}</div>
+    <a class="link-recoveryPassword" href="#">{{ $t('messages.recoverPassword') }}</a>
+    <router-link class="link-registration" :to="{ name: 'Register' }">{{ $t('messages.linkRegistration') }}</router-link>
+    <input class="buttonLogin" type="button" id="submit" :value="$t('messages.buttonLogin')"/>
   </form>
 </template>
 

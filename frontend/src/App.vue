@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <Header/>
   <router-view/>
 </template>
 
@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 export default defineComponent({
-  components: { Header },
+  components: {Header},
   setup() {
     return {}
   }
@@ -19,6 +19,9 @@ import Header from "./components/Header.vue";
 </script>
 
 <style lang="css">
+:root {
+  --main-background-color: linear-gradient(to bottom, #131313, #000000)
+}
 html, body {
   width: 100%;
   height: 100%;
@@ -26,12 +29,12 @@ html, body {
   padding: 0;
 }
 
-body , #app {
+body, #app {
   overflow: auto;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, #01020c, #06060e, #0b0b0f, #0f0f11, #121212);
+  background-image: var(--main-background-color);
 }
 
 </style>

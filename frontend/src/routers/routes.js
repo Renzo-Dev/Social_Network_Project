@@ -1,7 +1,7 @@
 const routes = [
     {
         path: '/',
-        component: ()=> import('../pages/Home.vue'),
+        component: () => import('../pages/Home.vue'),
         name: "Home",
         meta: {
             title: 'Fun Talk',
@@ -10,7 +10,7 @@ const routes = [
     },
     {
         path: '/login',
-        component: ()=> import('../pages/Login.vue'),
+        component: () => import('../pages/Login.vue'),
         name: 'Login',
         meta: {
             title: 'Fun Talk',
@@ -18,7 +18,7 @@ const routes = [
     },
     {
         path: '/register',
-        component: ()=> import('../pages/Registration.vue'),
+        component: () => import('../pages/Registration.vue'),
         name: 'Register',
         meta: {
             title: 'Fun Talk',

@@ -1,6 +1,8 @@
 {
   "messages": {
     "buttonLogin": "Войти",
-    "recoverPassword": "Восстановить пароль"
+    "linkRegistration": "Регистрация",
+    "recoverPassword": "Восстановить пароль",
+    "ErrorMessage" : "Почта или пароль неверны"
   }
 }
