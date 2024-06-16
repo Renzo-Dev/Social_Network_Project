@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Couchbase\Role;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
