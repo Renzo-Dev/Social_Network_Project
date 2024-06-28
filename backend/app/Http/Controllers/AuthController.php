@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Exceptions\InvalidClaimException;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-    public function register(Request $request): \Illuminate\Http\JsonResponse
+    public function register(Request $request): JsonResponse
     {
         // проводим валидацию данных
         $request->validate([
@@ -32,7 +36,7 @@ class AuthController extends Controller
         return response()->json(compact('user', 'token'));
     }
 
-    public function login(Request $request): \Illuminate\Http\JsonResponse
+    public function login(Request $request): JsonResponse
     {
         $credentials = $request->only('email', 'password');
 
@@ -46,19 +50,25 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout(Request $request): \Illuminate\Http\JsonResponse
+    public function logout(Request $request): JsonResponse
     {
         Auth::logout();
 
         return response()->json(['message' => 'Successfully logged out']);
     }
 
-    public function refresh(Request $request): \Illuminate\Http\JsonResponse
+    public function refresh(Request $request): JsonResponse
     {
-        return $this->respondWithToken(Auth::refresh());
+        try {
+            // Обновление токена
+            $newToken = auth()->refresh(true);
+            return response()->json(compact('newToken'), 200);
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'Could not refresh token'], 500);
+        }
     }
 
-    public function me(): \Illuminate\Http\JsonResponse
+    public function me(): JsonResponse
     {
         $user = Auth::user();
         if (!$user) {
@@ -67,7 +77,7 @@ class AuthController extends Controller
         return response()->json($user->toArray());
     }
 
-    private function respondWithToken($token): \Illuminate\Http\JsonResponse
+    private function respondWithToken($token): JsonResponse
     {
         return response()->json([
             'access_token' => $token,
